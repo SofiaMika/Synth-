@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#14141d" />
+    <title>CORE-8 Synth</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>CORE-8 SYNTH</h1>
+      <div class="synths">
+        <section class="synth synth--surface" aria-labelledby="surface-title">
+          <div class="synth-controls">
+            <div class="synth-volume">
+              <h2 id="surface-title">SURFACE SYNTH</h2>
+              <label class="sr-only" for="surface-volume">Громкость Surface Synth</label>
+              <input id="surface-volume" type="range" min="0" max="100" value="60" />
+            </div>
+            <div class="knob-control">
+              <div class="knob">
+                <img src="/src/assets/knob-surface.svg" alt="" />
+                <input id="surface-detune" type="range" min="-100" max="100" value="0" aria-label="Расстройка Surface Synth" />
+              </div>
+              <label for="surface-detune">DETUNE</label>
+            </div>
+            <div class="knob-control">
+              <div class="knob">
+                <img src="/src/assets/knob-surface.svg" alt="" />
+                <input id="surface-pan" type="range" min="-100" max="100" value="0" aria-label="Панорама Surface Synth" />
+              </div>
+              <label for="surface-pan">PAN</label>
+            </div>
+            <label class="wave-select">
+              <span class="sr-only">Форма волны Surface Synth</span>
+              <select id="surface-wave">
+                <option value="sine">СИНУС</option>
+                <option value="triangle">ТРЕУГОЛЬНИК</option>
+                <option value="square">КВАДРАТ</option>
+                <option value="sawtooth">ПИЛА</option>
+              </select>
+            </label>
+          </div>
+          <div class="notes-heading">НОТЫ</div>
+          <div class="note-rows">
+            <div class="note-row">
+              <button class="note" type="button" data-synth="surface" data-note="C" aria-label="До, клавиша Q">ДО</button>
+              <button class="note" type="button" data-synth="surface" data-note="D" aria-label="Ре, клавиша W">РЕ</button>
+              <button class="note" type="button" data-synth="surface" data-note="E" aria-label="Ми, клавиша E">МИ</button>
+              <button class="note" type="button" data-synth="surface" data-note="F" aria-label="Фа, клавиша R">ФА</button>
+            </div>
+            <div class="note-row note-row--shifted">
+              <button class="note" type="button" data-synth="surface" data-note="G" aria-label="Соль, клавиша T">СОЛЬ</button>
+              <button class="note" type="button" data-synth="surface" data-note="A" aria-label="Ля, клавиша Y">ЛЯ</button>
+              <button class="note" type="button" data-synth="surface" data-note="B" aria-label="Си, клавиша U">СИ</button>
+            </div>
+          </div>
+        </section>
+        <section class="synth synth--deep" aria-labelledby="deep-title">
+          <div class="synth-controls">
+            <div class="synth-volume">
+              <h2 id="deep-title">DEEP SYNTH</h2>
+              <label class="sr-only" for="deep-volume">Громкость Deep Synth</label>
+              <input id="deep-volume" type="range" min="0" max="100" value="75" />
+            </div>
+            <div class="knob-control">
+              <div class="knob">
+                <img src="/src/assets/knob-deep.svg" alt="" />
+                <input id="deep-detune" type="range" min="-100" max="100" value="0" aria-label="Расстройка Deep Synth" />
+              </div>
+              <label for="deep-detune">DETUNE</label>
+            </div>
+            <div class="knob-control">
+              <div class="knob">
+                <img src="/src/assets/knob-deep.svg" alt="" />
+                <input id="deep-pan" type="range" min="-100" max="100" value="0" aria-label="Панорама Deep Synth" />
+              </div>
+              <label for="deep-pan">PAN</label>
+            </div>
+            <label class="wave-select">
+              <span class="sr-only">Форма волны Deep Synth</span>
+              <select id="deep-wave">
+                <option value="sine">СИНУС</option>
+                <option value="triangle">ТРЕУГОЛЬНИК</option>
+                <option value="square">КВАДРАТ</option>
+                <option value="sawtooth">ПИЛА</option>
+              </select>
+            </label>
+          </div>
+          <div class="notes-heading">НОТЫ</div>
+          <div class="note-rows">
+            <div class="note-row">
+              <button class="note" type="button" data-synth="deep" data-note="C" aria-label="До, клавиша 1">ДО</button>
+              <button class="note" type="button" data-synth="deep" data-note="D" aria-label="Ре, клавиша 2">РЕ</button>
+              <button class="note" type="button" data-synth="deep" data-note="E" aria-label="Ми, клавиша 3">МИ</button>
+              <button class="note" type="button" data-synth="deep" data-note="F" aria-label="Фа, клавиша 4">ФА</button>
+            </div>
+            <div class="note-row note-row--shifted">
+              <button class="note" type="button" data-synth="deep" data-note="G" aria-label="Соль, клавиша 5">СОЛЬ</button>
+              <button class="note" type="button" data-synth="deep" data-note="A" aria-label="Ля, клавиша 6">ЛЯ</button>
+              <button class="note" type="button" data-synth="deep" data-note="B" aria-label="Си, клавиша 7">СИ</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="mixer" aria-labelledby="mixer-title">
+        <h2 id="mixer-title" class="sr-only">FILTER &amp; EFFECTS</h2>
+        <div class="filter-section">
+          <label for="filter">FILTER</label>
+          <div class="knob">
+            <img src="/src/assets/knob-filter.svg" alt="" />
+            <input id="filter" type="range" min="0" max="100" value="65" aria-label="Частота фильтра" />
+          </div>
+        </div>
+        <div class="effect-sliders">
+          <label for="delay">DELAY</label><input id="delay" type="range" min="0" max="100" value="75" />
+          <label for="distortion">DISTORTION</label><input id="distortion" type="range" min="0" max="100" value="45" />
+          <label for="gain">GAIN</label><input id="gain" type="range" min="0" max="100" value="75" />
+          <label for="drums">DRUMS</label><input id="drums" type="range" min="0" max="100" value="0" />
+        </div>
+        <div class="presets">
+          <button type="button" data-preset="space" aria-pressed="false">SPACE</button>
+          <button type="button" data-preset="8bit" aria-pressed="false">8-BIT</button>
+          <button type="button" data-preset="drive" aria-pressed="false">DRIVE</button>
+          <span>SOUND</span>
+        </div>
+        <div class="octaver">
+          <button id="octave-up" type="button" aria-label="На октаву выше">⌃</button>
+          <button id="octave-down" type="button" aria-label="На октаву ниже">⌄</button>
+          <span>OCTAVER <output id="octave-value">0</output></span>
+        </div>
+        <div class="master">
+          <div class="master-buttons">
+            <button id="mute-all" type="button">MUTE ALL</button>
+            <button id="reset" type="button">RESET</button>
+          </div>
+          <label for="master-volume">MASTER<br />VOLUME</label>
+          <input id="master-volume" type="range" min="0" max="100" value="75" />
+        </div>
+      </section>
+      <p id="status" class="sr-only" role="status">Синтезатор готов</p>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
